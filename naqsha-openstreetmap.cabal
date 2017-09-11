@@ -43,6 +43,19 @@ library
                , unordered-containers
                , vector
                , xml-conduit
+
+executable server-example
+  hs-source-dirs: example/server
+  main-is: Main.hs
+  default-language: Haskell2010
+  build-depends: base
+               , data-default
+               , servant-server
+               , naqsha-openstreetmap
+               , wai
+               , warp
+
+
 test-Suite tests
   default-language: Haskell2010
   type: exitcode-stdio-1.0

@@ -17,9 +17,10 @@ cabal-version: >=1.10
 library
   default-language: Haskell2010
   exposed-modules: Naqsha.OpenStreetMap
-                 , Naqsha.OpenStreetMap.ID
                  , Naqsha.OpenStreetMap.Element
+                 , Naqsha.OpenStreetMap.ID
                  , Naqsha.OpenStreetMap.Language
+                 , Naqsha.OpenStreetMap.Tags
   build-depends: base                         >=4.9 && < 4.11
                , data-default
                , hashable

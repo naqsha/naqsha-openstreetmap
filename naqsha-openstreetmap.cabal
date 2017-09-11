@@ -22,15 +22,24 @@ library
                  , Naqsha.OpenStreetMap.ID
                  , Naqsha.OpenStreetMap.Language
                  , Naqsha.OpenStreetMap.Tags
+                 , Naqsha.OpenStreetMap.Api
+  other-modules: Naqsha.OpenStreetMap.Internal
+               , Naqsha.OpenStreetMap.Api.XML
+               , Naqsha.OpenStreetMap.Api.Info
+
   build-depends: base                         >=4.9 && < 4.11
+               , containers
                , data-default
                , hashable
+               , http-media
                , lens
                , naqsha                       > 0.2 && < 0.3
+               , servant
                , text
                , time
                , unordered-containers
                , vector
+               , xml-conduit
 test-Suite tests
   default-language: Haskell2010
   type: exitcode-stdio-1.0

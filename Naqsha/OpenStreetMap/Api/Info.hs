@@ -21,6 +21,7 @@ module Naqsha.OpenStreetMap.Api.Info
   ) where
 
 import Control.Lens
+import Data.Default
 import Data.Text                     as Text
 import Data.Version
 import Text.XML
@@ -56,6 +57,18 @@ data Api
         , _apiDatabaseStatus             :: Status
         , _apiGPXStatus                  :: Status
         }
+
+instance Default Api where
+  def = Api { _apiVersions           = VersionRange version version
+            , _apiArea               = 0
+            , _apiTracePointsPerPage = 0
+            , _apiMaximumWayNodes    = 0
+            , _apiMaximumChangeSetsElements = 0
+            , _apiTimeOut                   = 0
+            , _apiDatabaseStatus = Offline
+            , _apiStatus         = Offline
+            , _apiGPXStatus      = Offline
+            }
 
 makeLenses ''Api
 

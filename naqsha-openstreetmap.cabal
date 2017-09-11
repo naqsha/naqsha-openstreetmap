@@ -19,8 +19,10 @@ library
   exposed-modules: Naqsha.OpenStreetMap
                  , Naqsha.OpenStreetMap.ID
                  , Naqsha.OpenStreetMap.Element
+                 , Naqsha.OpenStreetMap.Language
   build-depends: base                         >=4.9 && < 4.11
                , data-default
+               , hashable
                , lens
                , naqsha                       > 0.2 && < 0.3
                , text

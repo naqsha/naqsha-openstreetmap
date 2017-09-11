@@ -23,8 +23,6 @@ import Control.Lens
 import Data.Default
 import Data.Text
 import Data.Time
-import Data.Vector                   as V
-import Naqsha.Geometry
 import Naqsha.OpenStreetMap.Element
 import Naqsha.OpenStreetMap.ID
 
@@ -75,8 +73,6 @@ instance Default (Meta a) where
              , __changeSet      = Nothing
              }
 
-
-
 -- | Strip off the meta data and return the underlying tagged data.
 unMeta :: Lens' (Element e) (Tagged e)
 unMeta = _element
@@ -115,36 +111,3 @@ timeStamp = _meta . _timeStamp
 -- | The change set number where the object was changed.
 changeSet :: Lens' (Element a) (Maybe Integer)
 changeSet = _meta . _changeSet
-
-
-
--- | A boundary on earth given by the range of latitude and
--- longitude. We represent this as a pair of Geo coordinates. The
--- `minGeo` given the minimum latitude and longitude, whereas `maxGeo`
--- gives the maximum latitude and longitude. If we visualise it as a
--- rectangle (which is not really accurate because we are on a globe),
--- `minGeo` gives the left bottom corner and `maxGeo` gives the right
--- upper corner.
-data GeoBounds = GeoBounds { __maxLatitude  :: Latitude
-                           , __minLatitude  :: Latitude
-                           , __maxLongitude :: Longitude
-                           , __minLongitude :: Longitude
-                           } deriving (Show, Eq)
-
-makeLenses ''GeoBounds
-
--- | The upperbound on latitude
-maxLatitude :: Lens' GeoBounds Latitude
-maxLatitude = _maxLatitude
-
--- | The lowerbound on latitude
-minLatitude :: Lens' GeoBounds Latitude
-minLatitude = _minLatitude
-
--- | The upperbound on longitude
-maxLongitude :: Lens' GeoBounds Longitude
-maxLongitude = _maxLongitude
-
--- | The lowerbound on longitude
-minLongitude :: Lens' GeoBounds Longitude
-minLongitude = _minLongitude

@@ -27,13 +27,10 @@ module Naqsha.OpenStreetMap.Element
        , tagAt
        ) where
 
-import           Control.Monad                  ( liftM )
 import           Control.Lens
 import           Data.Default
 import qualified Data.HashMap.Lazy           as HM
 import           Data.Text   hiding             (empty)
-import           Data.Time
-import           Data.Word
 import qualified Data.Vector                 as V
 import qualified Data.Vector.Unboxed         as VU
 

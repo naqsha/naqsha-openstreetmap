@@ -5,15 +5,13 @@
 
 -- | Module that captures id's of objects.
 module Naqsha.OpenStreetMap.ID
-  ( ID
+  ( ID, unsafeToID
   ) where
 
 import           Control.Monad                  ( liftM )
-import qualified Data.Vector                 as V
 import qualified Data.Vector.Generic         as GV
 import qualified Data.Vector.Generic.Mutable as GVM
 import           Data.Vector.Unboxed            (Vector, MVector, Unbox)
-import qualified Data.Vector.Unboxed         as VU
 import           Data.Word                      ( Word64 )
 
 -- | The ID of an object in open street map. Currently, the Open
@@ -24,8 +22,8 @@ newtype ID element  = ID Word64 deriving (Eq, Ord)
 -- | Unsafe conversion of Word64 into an OsmID. You will hardly need
 -- this except for some very special circumstances. The type safety is
 -- due to this.
-unsafeToOsmID :: Word64 -> ID e
-unsafeToOsmID = ID
+unsafeToID :: Word64 -> ID e
+unsafeToID = ID
 
 instance Show (ID element) where
   show (ID x) = show x

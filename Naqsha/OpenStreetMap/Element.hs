@@ -137,20 +137,11 @@ instance Location Geo where
 type Tags = HM.HashMap Text Text
 
 -- | Element @elem@ glued with its tags.
-data Tagged elem = Tagged { __element :: elem
+data Tagged elem = Tagged { __untaggedElement :: elem
                           , __tags    :: Tags
                           } deriving (Show, Eq)
 
 makeLenses ''Tagged
-
--- | The default value is with empty tags.
-instance Default e => Default (Tagged e) where
-  def = Tagged def HM.empty
-
-instance Location e => Location (Tagged e) where
-  latitude    = _element . latitude
-  longitude   = _element . longitude
-  geoPosition = _element . geoPosition
 
 
 -- | Family of types that have Open street map tags.
@@ -169,7 +160,17 @@ class Semantic elem where
 instance Semantic (Tagged e) where
   type ElementType (Tagged e) = e
   tags     = _tags
-  untagged = _element
+  untagged = _untaggedElement
+
+-- | The default value is with empty tags.
+instance Default e => Default (Tagged e) where
+  def = Tagged def HM.empty
+
+instance Location e => Location (Tagged e) where
+  latitude    = _untaggedElement . latitude
+  longitude   = _untaggedElement . longitude
+  geoPosition = _untaggedElement . geoPosition
+
 
 
 -------------- Some useful lenses -------------------------------

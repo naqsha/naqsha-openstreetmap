@@ -23,10 +23,11 @@ library
                  , Naqsha.OpenStreetMap.Language
                  , Naqsha.OpenStreetMap.Tags
                  , Naqsha.OpenStreetMap.Api
-                 , Naqsha.OpenStreetMap.Api.Servant
+
   other-modules: Naqsha.OpenStreetMap.Internal
                , Naqsha.OpenStreetMap.Api.XML
                , Naqsha.OpenStreetMap.Api.Info
+               , Naqsha.OpenStreetMap.Api.ContentTypes
 
                , Paths_naqsha_openstreetmap
   build-depends: base                         >=4.9 && < 4.11

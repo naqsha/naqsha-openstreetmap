@@ -19,6 +19,7 @@ library
   exposed-modules: Naqsha.OpenStreetMap
                  , Naqsha.OpenStreetMap.ID
   build-depends: base                         >=4.9 && <4.11
+               , vector
 
 test-Suite tests
   default-language: Haskell2010

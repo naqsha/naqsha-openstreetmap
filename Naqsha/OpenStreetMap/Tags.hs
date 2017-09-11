@@ -23,7 +23,7 @@ import Control.Lens
 import Data.Monoid
 import Data.Text                            ( Text     )
 
-import Naqsha.Common
+import Naqsha.OpenStreetMap.Internal
 import Naqsha.OpenStreetMap.Element
 import Naqsha.OpenStreetMap.Language
 

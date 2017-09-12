@@ -63,4 +63,6 @@ test-Suite tests
   main-is: Main.hs
   ghc-options: -Wall
   build-depends: base
+               , hspec
                , hspec-discover
+  other-modules: Naqsha.OpenStreetMap.Api.InfoSpec

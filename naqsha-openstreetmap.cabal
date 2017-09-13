@@ -41,7 +41,7 @@ library
                , text
                , time
                , unordered-containers
-               , vector
+               , vector                       >= 0.7.1 && < 0.13
                , xml-conduit
 
 executable server-example

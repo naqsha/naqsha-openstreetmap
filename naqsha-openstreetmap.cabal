@@ -14,6 +14,12 @@ license-file: LICENSE
 build-type:    Simple
 cabal-version: >=1.10
 
+bug-reports: https://github.com/naqsha/naqsha-openstreetmap/issues
+
+source-repository head
+  type: git
+  location:  https://github.com/naqsha/naqsha-openstreetmap.git
+
 library
   default-language: Haskell2010
   exposed-modules: Naqsha.OpenStreetMap
@@ -31,6 +37,7 @@ library
 
                , Paths_naqsha_openstreetmap
   build-depends: base                         >=4.7 && < 4.12
+               , conduit
                , containers
                , data-default
                , hashable
@@ -43,7 +50,7 @@ library
                , unordered-containers
                , vector                       >= 0.7.1 && < 0.13
                , xml-conduit
-
+               , xml-types
 executable server-example
   hs-source-dirs: example/server
   main-is: Main.hs
